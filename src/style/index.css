@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+
+body {
+    font-family: 'Jost', sans-serif;
+}
+
+:root {
+    --primary-color: #DB4444;
+}
+
+
+.nav-icon {
+    color: var(--primary-color);
+}
+
+.src-btn {
+    background-color: var(--primary-color);
+}
+
+.icon-img {
+    color: var(--primary-color);
+}
