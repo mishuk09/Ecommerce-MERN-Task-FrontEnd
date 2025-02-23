@@ -9,8 +9,12 @@ body {
     --primary-color: #DB4444;
 }
 
+.theme-color {
+    background-color: var(--primary-color);
+}
 
-.nav-icon {
+.nav-icon,
+.child-color {
     color: var(--primary-color);
 }
 

@@ -7,6 +7,13 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(),
   tailwindcss(),
-
   ],
+  build: {
+    outDir: 'build', // Change 'dist' to 'build'
+  },
+  server: {
+    proxy: {
+      '/product/items': 'http://localhost:5000'
+    }
+  }
 })

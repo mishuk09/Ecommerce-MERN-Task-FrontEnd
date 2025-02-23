@@ -27,7 +27,7 @@ const slides = [
 ];
 
 
-export default function BannerSlider() {
+export default function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const prevSlide = () => {
