@@ -5,6 +5,10 @@ import CountdownTimer from "../../components/CountdownTimer";
 import Skeleton from "react-loading-skeleton";
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
 
 const Flashsell = () => {
     const [posts, setPosts] = useState([]);
@@ -45,6 +49,21 @@ const Flashsell = () => {
             items: 2
         }
     };
+    const [wishlist, setWishlist] = useState(
+        JSON.parse(localStorage.getItem('wishlist')) || {}
+    );
+    const handleWishlist = (productId) => {
+        const updateWishlist = { ...wishlist, [productId]: !wishlist[productId] };
+        setWishlist(updateWishlist);
+        localStorage.setItem('wishlist', JSON.stringify(updateWishlist));
+    };
+
+    useEffect(() => {
+        const savedWishlist = JSON.parse(localStorage.getItem('wishlist'));
+        if (savedWishlist) {
+            setWishlist(savedWishlist);
+        }
+    }, []);
 
     return (
         <div>
@@ -60,7 +79,7 @@ const Flashsell = () => {
             <Carousel
                 responsive={responsive}
                 infinite={false}
-                autoPlay={false} 
+                autoPlay={false}
                 itemClass="px-2  "
                 containerClass=" max-w-7xl  mt-6 mx-auto px-0"
             >
@@ -87,7 +106,7 @@ const Flashsell = () => {
                         </div>
                     ))
                     : posts.map(product => (
-                        <div key={product._id} className="relative bg-white rounded-sm shadow-md">
+                        <div key={product._id} className="relative bg-white rounded shadow-md">
                             <a href={`/product/${product._id}`}>
                                 <div className="overflow-hidden bg-gray-100 rounded-sm">
                                     <img
@@ -95,32 +114,34 @@ const Flashsell = () => {
                                         alt={product.title}
                                         className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
                                     />
-                                    <span className="absolute top-2 left-2 bg-gray-200 text-red-400 text-xs px-2 py-1 rounded">Sale</span>
+                                    <span className="absolute sell-color text-white top-3 left-3    text-xs px-2 py-1 rounded"> - {(((product.oldPrice - product.newPrice) / product.newPrice * 100).toFixed(0))} % </span>
                                 </div>
                             </a>
-                            {/* <button
+
+                            <button
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     handleWishlist(product._id);
                                 }}
-                                className="absolute top-2 right-2 p-2"
+                                className="absolute ring-0 bg-white rounded-full top-2 right-2 w-8 h-8 flex items-center justify-center"
                             >
-                                <FontAwesomeIcon className={`w-4 ${wishlist[product._id] ? 'text-red-600' : 'text-gray-400'}`} icon={faHeart} />
-                            </button> */}
-                            <div className="p-2">
-                                <div className="flex space-x-1 md:pt-2">
-                                    {product.color.map(color => (
-                                        <button
-                                            key={color}
-                                            aria-label={`Select ${color}`}
-                                            className="relative w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-gray hover:border-gray-500 duration-75"
-                                            style={{ backgroundColor: color.toLowerCase() }}
-                                        />
-                                    ))}
-                                </div>
-                                <h2 className="text-sm md:text-base product-card__title text-start md:pt-3 pt-1 font-semibold text-gray-900">
+                                <FontAwesomeIcon
+                                    className={`w-4 ${wishlist[product._id] ? 'text-red-600' : 'text-gray-400'}`}
+                                    icon={faHeart}
+                                />
+                            </button>
+
+                            <div className='ps-2'>
+                                <h2 className="text-lg product-card__title text-start pt-1 md:pt-3 font-semibold text-gray-900">
                                     {product.title.toLowerCase().replace(/\b\w/g, c => c.toUpperCase()).substring(0, 20)}{product.title.length > 20 ? '...' : ''}
                                 </h2>
+                                <div>
+                                    <div>
+                                        <span className="new-price font-semibold">${product.newPrice}</span>
+                                        <span className="  line-through text-gray-500 ml-2">${product.oldPrice}</span>
+                                    </div>
+
+                                </div>
                                 <div className="flex justify-between items-center">
                                     {/* <MadeBy /> */}
                                 </div>

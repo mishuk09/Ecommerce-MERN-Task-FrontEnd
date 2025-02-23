@@ -9,12 +9,14 @@ body {
     --primary-color: #DB4444;
 }
 
-.theme-color {
+.theme-color,
+.sell-color {
     background-color: var(--primary-color);
 }
 
 .nav-icon,
-.child-color {
+.child-color,
+.new-price {
     color: var(--primary-color);
 }
 
