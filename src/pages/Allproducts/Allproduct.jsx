@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import axios from "axios"; // Import Axios
 import Headline from "../../components/Headline";
-import Skeleton from "react-loading-skeleton";
-import Carousel from "react-multi-carousel";
-import 'react-multi-carousel/lib/styles.css';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import Skeleton from "react-loading-skeleton";
 
-
-
-const Bestseeling = () => {
+const Allproduct = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -28,26 +24,6 @@ const Bestseeling = () => {
 
         fetchData();
     }, []);
-
-
-    const responsive = {
-        superLargeDesktop: {
-            breakpoint: { max: 4000, min: 1024 },
-            items: 4
-        },
-        desktop: {
-            breakpoint: { max: 1024, min: 768 },
-            items: 3
-        },
-        tablet: {
-            breakpoint: { max: 768, min: 464 },
-            items: 2
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 2
-        }
-    };
     const [wishlist, setWishlist] = useState(
         JSON.parse(localStorage.getItem('wishlist')) || {}
     );
@@ -63,27 +39,19 @@ const Bestseeling = () => {
             setWishlist(savedWishlist);
         }
     }, []);
-
     return (
         <div className="mt-20">
             <Headline
-                headline="Best seeling Product"
-                child="This month"
-                href="bestseel"
-                seemore="bestseel"
+                headline="Explore Our Products"
+                child="Our Product's"
+                href="allproducts"
+                seemore="allproducts"
             />
 
-
-            <Carousel
-                responsive={responsive}
-                infinite={false}
-                autoPlay={false}
-                itemClass="px-2  "
-                containerClass=" max-w-7xl  mt-6 mx-auto px-0"
-            >
+            <div className="max-w-7xl mt-6 mx-auto grid grid-cols-2 md:grid-cols-5 gap-4">
                 {loading
                     ? Array.from({ length: 15 }).map((_, index) => (
-                        <div key={index} className="relative bg-white rounded-sm shadow-md">
+                        <div key={index} className="relative bg-white rounded ">
                             <div className="overflow-hidden rounded-sm">
                                 <Skeleton height={200} className="w-full" />
                             </div>
@@ -104,7 +72,7 @@ const Bestseeling = () => {
                         </div>
                     ))
                     : posts.map(product => (
-                        <div key={product._id} className="relative bg-white rounded shadow-md">
+                        <div key={product._id} className="relative bg-white rounded  ">
                             <a href={`/product/${product._id}`}>
                                 <div className="overflow-hidden bg-gray-100 rounded-sm">
                                     <img
@@ -146,9 +114,10 @@ const Bestseeling = () => {
                             </div>
                         </div>
                     ))}
-            </Carousel>
+            </div>
+
         </div>
     );
 };
 
-export default Bestseeling;
+export default Allproduct;

@@ -57,7 +57,7 @@ const Categories = () => {
     };
 
     return (
-        <div className="mt-14">
+        <div className="mt-20">
             <Headline
                 headline="Browse By Category"
                 child="Categories"

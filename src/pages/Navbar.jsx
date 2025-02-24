@@ -62,7 +62,7 @@ export default function Navbar() {
               <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
                 <Menu size={28} />
               </button>
-              <h1 className="text-2xl font-bold icon-img">MegaMart</h1>
+              <a href="/" className="text-2xl font-bold icon-img">MegaMart</a>
             </div>
 
             {/* Search Bar */}

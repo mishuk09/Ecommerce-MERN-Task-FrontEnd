@@ -13,12 +13,14 @@ body {
 .sub-cate {
     color: var(--category-color);
 }
-.buy-color{
+
+.buy-color {
     background-color: var(--category-color);
 }
 
 .theme-color,
-.sell-color {
+.sell-color,
+.subscribe-btn {
     background-color: var(--primary-color);
 }
 
@@ -53,4 +55,27 @@ body {
 
     /* transform: scale(1.1); */
     /* Slight scaling effect for better UX */
+}
+
+
+
+
+
+/* footer section     */
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
+}
+
+@media only screen and (max-width: 1200px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
 }
