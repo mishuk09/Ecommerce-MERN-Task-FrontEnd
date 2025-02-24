@@ -7,9 +7,9 @@ const Headline = ({ child, headline, seemore, extra }) => {
             <div>
                 <div className="flex items-center space-x-2">
                     <div className="theme-color w-4 h-7 rounded"></div>
-                    <div className="text-sm font-semibold child-color">{child}</div>
+                    <div className="text-sm font-medium child-color">{child}</div>
                 </div>
-                <div className="text-3xl font-semibold mt-2">{headline}</div>
+                <div className="text-2xl font-medium mt-2">{headline}</div>
             </div>
             <div className="flex flex-row items-center justify-end text-center  ">
                 <div>
@@ -24,10 +24,10 @@ const Headline = ({ child, headline, seemore, extra }) => {
 };
 
 Headline.propTypes = {
-    child: PropTypes.node.isRequired,  
-    headline: PropTypes.string.isRequired,  
-    seemore: PropTypes.string.isRequired,  
-    extra: PropTypes.any  
+    child: PropTypes.node.isRequired,
+    headline: PropTypes.string.isRequired,
+    seemore: PropTypes.string.isRequired,
+    extra: PropTypes.any
 };
 
 export default Headline;

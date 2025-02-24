@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios"; // Import Axios
 import Headline from "../../components/Headline";
-import CountdownTimer from "../../components/CountdownTimer";
 import Skeleton from "react-loading-skeleton";
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
@@ -10,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 
-const Flashsell = () => {
+const Bestseeling = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -68,11 +67,10 @@ const Flashsell = () => {
     return (
         <div>
             <Headline
-                headline="Flash Sales"
-                child="Today's"
-                href="flashsell"
-                extra={<CountdownTimer />}
-                seemore="flashsell"
+                headline="Best seeling Product"
+                child="This month"
+                href="bestseel"
+                seemore="bestseel"
             />
 
 
@@ -153,4 +151,4 @@ const Flashsell = () => {
     );
 };
 
-export default Flashsell;
+export default Bestseeling;
