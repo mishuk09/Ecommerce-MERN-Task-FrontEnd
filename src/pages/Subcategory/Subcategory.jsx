@@ -12,13 +12,13 @@ export default function Subcategory() {
     return (
         <div className="relative mt-20 w-full max-w-7xl mx-auto p-4">
 
-            <div className="relative flex items-center bg-black  text-white rounded overflow-hidden p-6 md:p-4">
+            <div className="relative  md:flex  items-center bg-black  text-white rounded overflow-hidden p-6 md:p-4">
 
                 <div className="flex-1 md:ps-10">
                     <p className="text-xs sub-cate  md:text-lg">Category</p>
-                    <h1 className="text-2xl md:text-5xl font-bold mt-2">SMART WEARABLES</h1>
+                    <h1 className="text-2xl md:text-5xl font-bold mt-4">SMART WEARABLES</h1>
 
-                    <div className='mt-6'>
+                    <div className='mt-4'>
                         <Buynowcount />
                     </div>
 
@@ -28,7 +28,7 @@ export default function Subcategory() {
                 </div>
 
 
-                <div className="flex-1 md:pe-20 flex justify-end">
+                <div className="flex-1 mt-8 md:mt-0 md:pe-20 flex justify-center md:justify-end">
                     <img src={airphone} alt="Smart Watch" className="h-30 md:h-[350px]" />
                 </div>
             </div>

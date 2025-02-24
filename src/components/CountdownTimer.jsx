@@ -22,7 +22,7 @@ const CountdownTimer = () => {
     const seconds = timeLeft % 60;
 
     return (
-        <div className="text-xl  text-center  w-72 mx-auto">
+        <div className="text-xl hidden md:block text-center  w-72 mx-auto">
             <div className="flex justify-center space-x-2 items-end">
                 <div className="flex flex-col items-center">
                     <span className="text-xs">Days</span>

@@ -3,13 +3,13 @@ import Semore from "./Semore";
 
 const Headline = ({ child, headline, seemore, extra }) => {
     return (
-        <div className="max-w-7xl   relative flex justify-between mt-10 mx-auto">
+        <div className="max-w-7xl    relative flex justify-between mt-10 mx-2 md:mx-auto">
             <div>
                 <div className="flex items-center space-x-2">
                     <div className="theme-color w-4 h-7 rounded"></div>
                     <div className="text-sm font-medium child-color">{child}</div>
                 </div>
-                <div className="text-2xl font-medium mt-2">{headline}</div>
+                <div className="text-xl md:text-2xl font-medium mt-2">{headline}</div>
             </div>
             <div className="flex flex-row items-center justify-end text-center  ">
                 <div>
